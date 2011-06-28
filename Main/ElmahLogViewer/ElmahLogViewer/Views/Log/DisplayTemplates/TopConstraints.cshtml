@@ -10,30 +10,22 @@
         <option value="100" @((Model.PerPage == 100) ? "selected='selected'" : "")>100 Per Page</option>
         <option value="200" @((Model.PerPage == 200) ? "selected='selected'" : "")>200 Per Page</option>
     </select>
-    @if (ViewData["serverId"] != null)
-    {
-        <input type="hidden" name="serverId" value="@ViewData["serverId"]" />
-    }
-    @if (ViewData["environment"] != null)
-    {
-
-        <input type="hidden" name="environment" value="@ViewData["environment"]" />
-    }
-    @if (ViewData["name"] != null)
-    {
-
-        <input type="hidden" name="name" value="@ViewData["name"]" />
-    }
-    @if (ViewData["connectionString"] != null)
-    {
-
-        <input type="hidden" name="connectionString" value="@ViewData["connectionString"]" />
-    }
-    @if (ViewData["filter"] != null)
-    {
-
-        <input type="hidden" name="filter" value="@ViewData["filter"]" />
-    }
+    @Html.Partial("ViewDataHiddenInput", "serverId")
+    @Html.Partial("ViewDataHiddenInput", "filter")
+    @Html.Partial("ViewDataHiddenInput", "environment")
+    @Html.Partial("ViewDataHiddenInput", "name")
+    @Html.Partial("ViewDataHiddenInput", "connectionString")
+    @Html.Partial("ViewDataHiddenInput", "application")
+    @Html.Partial("ViewDataHiddenInput", "errorId")
+    @Html.Partial("ViewDataHiddenInput", "host")
+    @Html.Partial("ViewDataHiddenInput", "fromSequence")
+    @Html.Partial("ViewDataHiddenInput", "toSequence")
+    @Html.Partial("ViewDataHiddenInput", "source")
+    @Html.Partial("ViewDataHiddenInput", "statusCode")
+    @Html.Partial("ViewDataHiddenInput", "fromTimeUtc")
+    @Html.Partial("ViewDataHiddenInput", "toTimeUtc")
+    @Html.Partial("ViewDataHiddenInput", "type")
+    @Html.Partial("ViewDataHiddenInput", "user")
     <input type="submit" value="Go" />
     </form>
     @Html.Partial("SetConstraintsPager", Model)
