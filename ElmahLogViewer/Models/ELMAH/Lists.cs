@@ -2,10 +2,10 @@
 
 namespace ElmahLogViewer.Models.ELMAH
 {
-    public class ServerList : ResultSet<IELMAH_Server> { }
+    public class ServerList : ResultSet<IServer> { }
 
     public class ErrorList : ResultSet<IELMAH_Error>
     {
-        public IELMAH_Server Server { get; set; }
+        public IServer Server { get; set; }
     }
 }

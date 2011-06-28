@@ -6,6 +6,6 @@
 
         public Data.IELMAH_Error ErrorDetails { get; set; }
 
-        public Data.IELMAH_Server ServerDetails { get; set; }
+        public Data.IServer ServerDetails { get; set; }
     }
 }
