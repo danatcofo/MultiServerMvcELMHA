@@ -1,0 +1,35 @@
+﻿@using ElmahLogViewer.Models;
+@using ElmahLogViewer.Models.ELMAH;
+@model ServerList
+@{
+    ViewBag.Title = "Index";
+}
+<h2>
+    Elmah Servers</h2>
+@if (Model.Constraints is IFilter<string>)
+{
+    <form action="@Url.Action("Filter")" method="get" id="filterForm">
+    <input type="text" name="filter" value="@(((IFilter<string>)Model.Constraints).Filter)" />
+    <input type="submit" value="Search" />
+    </form>
+}
+else if (Model.Constraints is IFilter<ServerForm>)
+{
+    <form action="@Url.Action("AdvancedFilter")" method="get" id="advancedFilterForm">
+    @Html.EditorFor(m => ((IFilter<ServerForm>)m).Filter, "SearchServerForm")
+    <input type="submit" value="Search" />
+    </form>
+}
+else
+{
+    <form action="@Url.Action("Filter")" method="get" id="filterForm">
+    <input type="text" name="filter" />
+    <input type="submit" value="Search" />
+    </form>
+}
+@Html.DisplayFor(m => m.Constraints, "TopConstraints")
+@Html.DisplayFor(m => m.Results, "Servers")
+@Html.DisplayFor(m => m.Constraints, "BottomConstraints")
+<div id="add-server">
+    @Html.Partial("Create", new ServerForm())
+</div>
