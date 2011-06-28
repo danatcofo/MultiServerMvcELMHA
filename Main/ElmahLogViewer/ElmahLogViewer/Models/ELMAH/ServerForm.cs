@@ -4,7 +4,7 @@ using ElmahLogViewer.Data;
 
 namespace ElmahLogViewer.Models.ELMAH
 {
-    public class ServerForm : IELMAH_Server
+    public class ServerForm : IServer
     {
         [Required]
         public string ConnectionString { get; set; }

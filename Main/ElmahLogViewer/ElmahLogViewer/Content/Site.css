@@ -244,12 +244,14 @@ table
 {
     border: solid 1px #e8eef4;
     border-collapse: collapse;
+    width: 100%;
 }
 
 table td
 {
     padding: 5px;
     border: solid 1px #e8eef4;
+    vertical-align: top;
 }
 
 table th
@@ -258,6 +260,7 @@ table th
     text-align: left;
     background-color: #e8eef4;
     border: solid 1px #e8eef4;
+    vertical-align: top;
 }
 
 /* MISC
