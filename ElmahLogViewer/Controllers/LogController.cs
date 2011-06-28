@@ -54,15 +54,14 @@ namespace ElmahLogViewer.Controllers
                         ConnectionString = i.ConnectionString,
                         Environment = i.Environment,
                     }),
-                Constraints = new SetConstraints<string>
+                Constraints = new SetConstraints
                 {
                     Sort = sort,
                     SortDir = sortDir,
                     StartIndex = startIndex,
                     PerPage = perPage,
                     Total = v.Count(),
-                    Page = (startIndex / perPage) + 1,
-                    Filter = string.Empty,
+                    Page = startIndex / perPage,
                 },
             });
         }
@@ -95,15 +94,14 @@ namespace ElmahLogViewer.Controllers
                         ConnectionString = i.ConnectionString,
                         Environment = i.Environment,
                     }),
-                Constraints = new SetConstraints<string>
+                Constraints = new SetConstraints
                 {
                     Sort = sort,
                     SortDir = sortDir,
                     StartIndex = startIndex,
                     PerPage = perPage,
                     Total = v.Count(),
-                    Page = (startIndex / perPage) + 1,
-                    Filter = filter,
+                    Page = startIndex / perPage,
                 },
             });
         }
@@ -142,20 +140,14 @@ namespace ElmahLogViewer.Controllers
                         ConnectionString = i.ConnectionString,
                         Environment = i.Environment,
                     }),
-                Constraints = new SetConstraints<ServerForm>
+                Constraints = new SetConstraints
                 {
                     Sort = sort,
                     SortDir = sortDir,
                     StartIndex = startIndex,
                     PerPage = perPage,
                     Total = v.Count(),
-                    Page = (startIndex / perPage) + 1,
-                    Filter = new ServerForm
-                    {
-                        Environment = environment,
-                        Name = name,
-                        ConnectionString = connectionString
-                    }
+                    Page = startIndex / perPage,
                 },
             });
         }
@@ -280,15 +272,14 @@ namespace ElmahLogViewer.Controllers
                         Type = i.Type,
                         ServerId = server.ServerId,
                     }),
-                Constraints = new SetConstraints<string>
+                Constraints = new SetConstraints
                 {
                     Sort = sort,
                     SortDir = sortDir,
                     StartIndex = startIndex,
                     PerPage = perPage,
                     Total = v.Count(),
-                    Page = (startIndex / perPage) + 1,
-                    Filter = string.Empty,
+                    Page = startIndex / perPage,
                 }
             });
         }
@@ -344,15 +335,106 @@ namespace ElmahLogViewer.Controllers
                         Type = i.Type,
                         ServerId = server.ServerId,
                     }),
-                Constraints = new SetConstraints<string>
+                Constraints = new SetConstraints
                 {
                     Sort = sort,
                     SortDir = sortDir,
                     StartIndex = startIndex,
                     PerPage = perPage,
                     Total = v.Count(),
-                    Page = (startIndex / perPage) + 1,
-                    Filter = filter,
+                    Page = startIndex / perPage,
+                }
+            });
+        }
+
+        public ActionResult AdvancedSearch(
+            Guid serverId,
+            string application = null,
+            string errorId = null,
+            string host = null,
+            string message = null,
+            int? fromSequence = null,
+            int? toSequence = null,
+            string source = null,
+            int? statusCode = null,
+            DateTime? fromTimeUtc = null,
+            DateTime? toTimeUtc = null,
+            string type = null,
+            string user = null,
+            int startIndex = 0,
+            int perPage = 15,
+            string sort = "sequence",
+            SortDir sortDir = SortDir.DESC
+            )
+        {
+            var server = getServer(serverId);
+            if (server == null) return RedirectToAction("Index");
+
+            ViewData["startIndex"] = startIndex;
+            ViewData["perPage"] = perPage;
+            ViewData["sort"] = sort;
+            ViewData["sortDir"] = sortDir;
+            ViewData["serverId"] = server.ServerId;
+            // available filters
+            ViewData["application"] = application;
+            ViewData["errorId"] = errorId;
+            ViewData["host"] = host;
+            ViewData["message"] = message;
+            ViewData["fromSequence"] = fromSequence;
+            ViewData["toSequence"] = toSequence;
+            ViewData["source"] = source;
+            ViewData["statusCode"] = statusCode;
+            ViewData["fromTimeUtc"] = fromTimeUtc;
+            ViewData["toTimeUtc"] = toTimeUtc;
+            ViewData["type"] = type;
+            ViewData["user"] = user;
+
+            var logContext = new ElmahConfigDataContext(server.ConnectionString);
+
+            var v = logContext.ELMAH_Errors.AsQueryable();
+
+            if (!string.IsNullOrWhiteSpace(application)) v = v.Where(i => i.Application.Contains(application.Trim()));
+            if (!string.IsNullOrWhiteSpace(errorId)) v = v.Where(i => i.ErrorId.ToString().Contains(errorId.Trim()));
+            if (!string.IsNullOrWhiteSpace(host)) v = v.Where(i => i.Host.Contains(host.Trim()));
+            if (!string.IsNullOrWhiteSpace(message)) v = v.Where(i => i.Message.Contains(message.Trim()));
+            if (fromSequence.HasValue) v = v.Where(i => i.Sequence >= fromSequence.Value);
+            if (toSequence.HasValue) v = v.Where(i => i.Sequence <= toSequence.Value);
+            if (!string.IsNullOrWhiteSpace(source)) v = v.Where(i => i.Source.Contains(source.Trim()));
+            if (statusCode.HasValue) v = v.Where(i => i.StatusCode == statusCode.Value);
+            if (fromTimeUtc.HasValue) v = v.Where(i => i.TimeUtc >= fromTimeUtc.Value);
+            if (toTimeUtc.HasValue) v = v.Where(i => i.TimeUtc <= toTimeUtc.Value);
+            if (!string.IsNullOrWhiteSpace(type)) v = v.Where(i => i.Type.Contains(type.Trim()));
+            if (!string.IsNullOrWhiteSpace(user)) v = v.Where(i => i.User.Contains(user.Trim()));
+
+            return View("ErrorLog", new ErrorList
+            {
+                Server = server,
+                Results = v
+                    .OrderBy(string.Format("{0} {1}", sort, sortDir))
+                    .Skip(startIndex)
+                    .Take(perPage)
+                    .Select(i => new ElmahError
+                    {
+                        Application = i.Application,
+                        Host = i.Host,
+                        ErrorId = i.ErrorId,
+                        Message = i.Message,
+                        Sequence = i.Sequence,
+                        TimeUtc = i.TimeUtc,
+                        Source = i.Source,
+                        StatusCode = i.StatusCode,
+                        User = i.User,
+                        Type = i.Type,
+                        ServerId = server.ServerId,
+                    }),
+                Constraints = new SetConstraints
+                {
+                    Sort = sort,
+                    SortDir = sortDir,
+                    StartIndex = startIndex,
+                    PerPage = perPage,
+                    Total = v.Count(),
+                    Page = startIndex / perPage,
                 }
             });
         }

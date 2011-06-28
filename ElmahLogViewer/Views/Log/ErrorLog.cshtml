@@ -6,22 +6,8 @@
 <h2>
     Error Log for</h2>
 @Html.DisplayFor(m => m.Server)
-@if (Model.Constraints is IFilter<string>)
-{
-    <form action="@Url.Action("Search")" method="get" id="searchForm">
-    <input type="text" name="filter" value="@(((IFilter<string>)Model.Constraints).Filter)" />
-    <input type="hidden" name="serverId" value="@Model.Server.ServerId" />
-    <input type="submit" value="Search" />
-    </form>
-}
-else
-{
-    <form action="@Url.Action("Search")" method="get" id="searchForm">
-    <input type="text" name="filter" />
-    <input type="hidden" name="serverId" value="@Model.Server.ServerId" />
-    <input type="submit" value="Search" />
-    </form>
-}
+@Html.Partial("SimpleSearch")
+@Html.Partial("AdvancedSearch")
 <fieldset>
     <legend>Errors</legend>
     @Html.DisplayFor(m => m.Constraints, "TopConstraints")

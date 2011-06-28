@@ -220,7 +220,7 @@
     <Content Include="Views\Log\EditorTemplates\ServerForm.cshtml" />
     <Content Include="Views\Log\DisplayTemplates\TopConstraints.cshtml" />
     <Content Include="Views\Log\DisplayTemplates\BottomConstraints.cshtml" />
-    <Content Include="Views\Shared\SetConstraintsPager.cshtml" />
+    <Content Include="Views\Log\SetConstraintsPager.cshtml" />
     <Content Include="Views\Log\DisplayTemplates\Servers.cshtml" />
     <Content Include="Views\Log\EditorTemplates\SearchServerForm.cshtml" />
     <Content Include="Views\Log\EditorTemplates\HiddenServerForm.cshtml" />
@@ -231,6 +231,10 @@
     <Content Include="Views\Log\Error.cshtml" />
     <Content Include="Views\Log\EditorTemplates\HiddenErrorSearchForm.cshtml" />
     <Content Include="Views\Log\DisplayTemplates\Error.cshtml" />
+    <Content Include="Views\Shared\ViewDataHiddenInput.cshtml" />
+    <Content Include="Views\Log\AdvancedSearch.cshtml" />
+    <Content Include="Views\Shared\ViewDataTextBoxInput.cshtml" />
+    <Content Include="Views\Log\SimpleSearch.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
