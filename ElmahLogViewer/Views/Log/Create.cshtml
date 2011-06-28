@@ -1,0 +1,13 @@
+﻿@model ElmahLogViewer.Models.ELMAH.ServerForm
+@{
+    ViewBag.Title = "AddServer";
+}
+<h2>
+    AddServer</h2>
+@using (Html.BeginForm("Create", "Log", FormMethod.Post, new { id = "createServer" }))
+{
+    @Html.EditorFor(m => m)
+}
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

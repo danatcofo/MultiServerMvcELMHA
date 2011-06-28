@@ -1,0 +1,46 @@
+﻿@model Elmah.Error
+<div class="display-label">
+    ApplicationName</div>
+<div class="display-field">
+    @Html.DisplayFor(model => model.ApplicationName)
+</div>
+<div class="display-label">
+    HostName</div>
+<div class="display-field">
+    @Html.DisplayFor(model => model.HostName)
+</div>
+<div class="display-label">
+    Type</div>
+<div class="display-field">
+    @Html.DisplayFor(model => model.Type)
+</div>
+<div class="display-label">
+    Source</div>
+<div class="display-field">
+    @Html.DisplayFor(model => model.Source)
+</div>
+<div class="display-label">
+    Message</div>
+<div class="display-field">
+    <pre>@Html.DisplayFor(model => model.Message)</pre>
+</div>
+<div class="display-label">
+    Detail</div>
+<div class="display-field">
+    <pre>@Html.DisplayFor(model => model.Detail)</pre>
+</div>
+<div class="display-label">
+    User</div>
+<div class="display-field">
+    @Html.DisplayFor(model => model.User)
+</div>
+<div class="display-label">
+    Time</div>
+<div class="display-field">
+    @Html.DisplayFor(model => model.Time)
+</div>
+<div class="display-label">
+    StatusCode</div>
+<div class="display-field">
+    @Html.DisplayFor(model => model.StatusCode)
+</div>
