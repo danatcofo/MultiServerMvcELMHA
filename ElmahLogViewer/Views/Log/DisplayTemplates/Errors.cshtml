@@ -1,36 +1,37 @@
-﻿@model IEnumerable<ElmahLogViewer.Models.ELMAH.ElmahError>
+﻿@using ElmahLogViewer.Models;
+@model IEnumerable<ElmahLogViewer.Models.ELMAH.ElmahError>
 <table class="multi-body">
     <tr>
         <th>
-            Sequence
+            @Html.Partial("SortByProperty", new SortModel { Property = "Sequence" })
         </th>
         <th>
-            TimeUtc
+            @Html.Partial("SortByProperty", new SortModel { Property = "TimeUtc", Label = "Time" })
         </th>
         <th>
-            ErrorId
+            @Html.Partial("SortByProperty", new SortModel { Property = "ErrorId", Label = "Error Id" })
         </th>
         <th>
-            Host~Application
+            @Html.Partial("SortByProperty", new SortModel { Property = "Host" }) ~ @Html.Partial("SortByProperty", new SortModel { Property = "Application" })
         </th>
         <th>
-            StatusCode
+            @Html.Partial("SortByProperty", new SortModel { Property = "StatusCode", Label = "Status Code" })
         </th>
         <th>
-            Type
+            @Html.Partial("SortByProperty", new SortModel { Property = "Type" })
         </th>
         <th>
-            User
+            @Html.Partial("SortByProperty", new SortModel { Property = "User" })
         </th>
         <th>
-            Source
+            @Html.Partial("SortByProperty", new SortModel { Property = "Source" })
         </th>
         <th rowspan="2">
         </th>
     </tr>
     <tr>
         <th colspan="8">
-            Message
+            @Html.Partial("SortByProperty", new SortModel { Property = "Message" })
         </th>
     </tr>
     @foreach (var item in Model)

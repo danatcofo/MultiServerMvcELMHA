@@ -4,26 +4,21 @@
 @{
     ViewBag.Title = "Index";
 }
-<table>
-    <tr>
-        <td>
-            <h2>
-                Elmah Servers</h2>
-            @Html.Partial("SimpleSearch")
-            <fieldset>
-                <legend>Servers</legend>
-                @Html.DisplayFor(m => m.Constraints, "TopConstraints")
-                @Html.DisplayFor(m => m.Results, "Servers")
-                @Html.DisplayFor(m => m.Constraints, "BottomConstraints")
-            </fieldset>
-        </td>
-        <td>
-            <div id="add-server">
-                @Html.Partial("Create", new ServerForm())
-            </div>
-        </td>
-    </tr>
-</table>
-<div>
-    @Html.ActionLink("Back to List", "Index")
+<div class="left fifty-percent">
+    <h2>
+        Elmah Servers</h2>
+    @Html.Partial("SimpleSearch")
+    <fieldset>
+        <legend>Servers</legend>
+        @Html.DisplayFor(m => m.Constraints, "TopConstraints")
+        @Html.DisplayFor(m => m.Results, "Servers")
+        @Html.DisplayFor(m => m.Constraints, "BottomConstraints")
+    </fieldset>
 </div>
+<div class="left fifty-percent">@Html.Partial("Create", new ServerForm())</div>
+<div class="clearfix">
+</div>
+<div id="add-server">
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>

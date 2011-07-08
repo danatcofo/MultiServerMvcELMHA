@@ -2,77 +2,81 @@
 <fieldset>
     <legend>Advanced Search</legend>
     @Html.Partial("ViewDataHiddenInput", "serverId")
-    <div class="editor-label">
-        @Html.Label("application", "Application")
+    <div class="left fifty-percent">
+        <div class="editor-label">
+            @Html.Label("application", "Application")
+        </div>
+        <div class="editor-field">
+            @Html.TextBox("application", ViewData["application"])
+        </div>
+        <div class="editor-label">
+            @Html.Label("errorId", "Error Id")
+        </div>
+        <div class="editor-field">
+            @Html.TextBox("errorId", ViewData["errorId"])
+        </div>
+        <div class="editor-label">
+            @Html.Label("host", "Host")
+        </div>
+        <div class="editor-field">
+            @Html.TextBox("host", ViewData["host"])
+        </div>
+        <div class="editor-label">
+            @Html.Label("message", "Message")
+        </div>
+        <div class="editor-field">
+            @Html.TextBox("message", ViewData["message"])
+        </div>
+        <div class="editor-label">
+            @Html.Label("fromSequence", "From Sequence Number")
+        </div>
+        <div class="editor-field">
+            @Html.TextBox("fromSequence", ViewData["fromSequence"])
+        </div>
+        <div class="editor-label">
+            @Html.Label("toSequence", "To Sequence Number")
+        </div>
+        <div class="editor-field">
+            @Html.TextBox("toSequence", ViewData["toSequence"])
+        </div>
     </div>
-    <div class="editor-field">
-        @Html.TextBox("application", ViewData["application"])
-    </div>
-    <div class="editor-label">
-        @Html.Label("errorId", "Error Id")
-    </div>
-    <div class="editor-field">
-        @Html.TextBox("errorId", ViewData["errorId"])
-    </div>
-    <div class="editor-label">
-        @Html.Label("host", "Host")
-    </div>
-    <div class="editor-field">
-        @Html.TextBox("host", ViewData["host"])
-    </div>
-    <div class="editor-label">
-        @Html.Label("message", "Message")
-    </div>
-    <div class="editor-field">
-        @Html.TextBox("message", ViewData["message"])
-    </div>
-    <div class="editor-label">
-        @Html.Label("fromSequence", "From Sequence Number")
-    </div>
-    <div class="editor-field">
-        @Html.TextBox("fromSequence", ViewData["fromSequence"])
-    </div>
-    <div class="editor-label">
-        @Html.Label("toSequence", "To Sequence Number")
-    </div>
-    <div class="editor-field">
-        @Html.TextBox("toSequence", ViewData["toSequence"])
-    </div>
-    <div class="editor-label">
-        @Html.Label("source", "Source dll")
-    </div>
-    <div class="editor-field">
-        @Html.TextBox("source", ViewData["source"])
-    </div>
-    <div class="editor-label">
-        @Html.Label("statusCode", "Status Code")
-    </div>
-    <div class="editor-field">
-        @Html.TextBox("statusCode", ViewData["statusCode"])
-    </div>
-    <div class="editor-label">
-        @Html.Label("fromTimeUtc", "From Time")
-    </div>
-    <div class="editor-field">
-        @Html.TextBox("fromTimeUtc", ViewData["fromTimeUtc"])
-    </div>
-    <div class="editor-label">
-        @Html.Label("toTimeUtc", "To Time")
-    </div>
-    <div class="editor-field">
-        @Html.TextBox("toTimeUtc", ViewData["toTimeUtc"])
-    </div>
-    <div class="editor-label">
-        @Html.Label("type", "Exception Type")
-    </div>
-    <div class="editor-field">
-        @Html.TextBox("type", ViewData["type"])
-    </div>
-    <div class="editor-label">
-        @Html.Label("user", "User")
-    </div>
-    <div class="editor-field">
-        @Html.TextBox("user", ViewData["user"])
+    <div class="left fifty-percent">
+        <div class="editor-label">
+            @Html.Label("source", "Source dll")
+        </div>
+        <div class="editor-field">
+            @Html.TextBox("source", ViewData["source"])
+        </div>
+        <div class="editor-label">
+            @Html.Label("statusCode", "Status Code")
+        </div>
+        <div class="editor-field">
+            @Html.TextBox("statusCode", ViewData["statusCode"])
+        </div>
+        <div class="editor-label">
+            @Html.Label("fromTimeUtc", "From Time")
+        </div>
+        <div class="editor-field">
+            @Html.TextBox("fromTimeUtc", ViewData["fromTimeUtc"])
+        </div>
+        <div class="editor-label">
+            @Html.Label("toTimeUtc", "To Time")
+        </div>
+        <div class="editor-field">
+            @Html.TextBox("toTimeUtc", ViewData["toTimeUtc"])
+        </div>
+        <div class="editor-label">
+            @Html.Label("type", "Exception Type")
+        </div>
+        <div class="editor-field">
+            @Html.TextBox("type", ViewData["type"])
+        </div>
+        <div class="editor-label">
+            @Html.Label("user", "User")
+        </div>
+        <div class="editor-field">
+            @Html.TextBox("user", ViewData["user"])
+        </div>
     </div>
     <input type="submit" value="Search" />
 </fieldset>

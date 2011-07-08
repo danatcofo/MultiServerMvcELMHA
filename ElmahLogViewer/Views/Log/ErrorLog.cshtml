@@ -5,8 +5,9 @@
 }
 <h2>
     Error Log for</h2>
-@Html.DisplayFor(m => m.Server)
-@Html.Partial("SimpleSearch")
+<div class="left fifty-percent">@Html.DisplayFor(m => m.Server)</div>
+<div class="left fifty-percent">@Html.Partial("SimpleSearch")</div>
+<div class="clearfix"></div>
 @Html.Partial("AdvancedSearch")
 <fieldset>
     <legend>Errors</legend>
