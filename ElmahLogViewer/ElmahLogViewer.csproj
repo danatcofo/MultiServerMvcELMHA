@@ -264,6 +264,7 @@
     <Content Include="Views\Shared\ViewDataTextBoxInput.cshtml" />
     <Content Include="Views\Log\SimpleSearch.cshtml" />
     <Content Include="Views\Shared\SortByProperty.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\NameValueCollection.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

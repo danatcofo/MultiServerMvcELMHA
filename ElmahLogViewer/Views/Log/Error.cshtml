@@ -5,10 +5,7 @@
 <h2>
     Error</h2>
 @Html.DisplayFor(m => m.ServerDetails)
-<fieldset>
-    <legend>Error</legend>
 @Html.DisplayFor(m => m.ElmahError)
-</fieldset>
 <p>
     @Html.ActionLink("Html", "Html", new { serverId = Model.ServerDetails.ServerId, errorId = Model.ErrorDetails.ErrorId })
     |
