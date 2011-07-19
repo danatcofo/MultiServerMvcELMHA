@@ -1,0 +1,19 @@
+﻿@using ElmahLogViewer.Areas.Elmah.Models;
+@model ServerList
+@{
+    ViewBag.Title = "Index";
+}
+<div class="left fifty-percent">
+    <h2>
+        Servers</h2>
+    @Html.Partial("SimpleSearch")
+    <fieldset>
+        <legend>Servers</legend>
+        @Html.DisplayFor(m => m.Constraints, "TopConstraints")
+        @Html.DisplayFor(m => m.Results, "Servers")
+        @Html.DisplayFor(m => m.Constraints, "BottomConstraints")
+    </fieldset>
+</div>
+<div class="left fifty-percent">@Html.Partial("Create", new ServerForm())</div>
+<div class="clearfix">
+</div>

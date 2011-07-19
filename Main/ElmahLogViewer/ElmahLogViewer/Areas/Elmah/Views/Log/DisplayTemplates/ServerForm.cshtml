@@ -1,0 +1,19 @@
+﻿@model ElmahLogViewer.Areas.Elmah.Models.ServerForm
+<fieldset>
+    <legend>Server</legend>
+    <div class="display-label">
+        Environment</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Environment)
+    </div>
+    <div class="display-label">
+        Name</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Name)
+    </div>
+    <div class="display-label">
+        ServerId</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ServerId)
+    </div>
+</fieldset>

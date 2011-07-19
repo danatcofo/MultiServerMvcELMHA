@@ -115,26 +115,27 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controllers\ControllerExtensionMethods.cs" />
+    <Compile Include="Areas\Elmah\ElmahAreaRegistration.cs" />
+    <Compile Include="Areas\Elmah\Controllers\ControllerExtensionMethods.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\LogController.cs" />
-    <Compile Include="Data\ElmahConfig.designer.cs">
+    <Compile Include="Areas\Elmah\Controllers\LogController.cs" />
+    <Compile Include="Areas\Elmah\Data\ElmahConfig.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ElmahConfig.dbml</DependentUpon>
     </Compile>
-    <Compile Include="Data\IELMAH_Error.cs" />
-    <Compile Include="Data\IServer.cs" />
+    <Compile Include="Areas\Elmah\Data\IELMAH_Error.cs" />
+    <Compile Include="Areas\Elmah\Data\IServer.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\ELMAH\ElmahError.cs" />
-    <Compile Include="Models\ELMAH\Error.cs" />
-    <Compile Include="Models\ELMAH\Lists.cs" />
-    <Compile Include="Models\ELMAH\ServerForm.cs" />
-    <Compile Include="Models\ResultSet.cs" />
+    <Compile Include="Areas\Elmah\Models\ElmahError.cs" />
+    <Compile Include="Areas\Elmah\Models\Error.cs" />
+    <Compile Include="Areas\Elmah\Models\Lists.cs" />
+    <Compile Include="Areas\Elmah\Models\ServerForm.cs" />
+    <Compile Include="Areas\Elmah\Models\ResultSet.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ViewExtensionMethods.cs" />
+    <Compile Include="Areas\Elmah\Views\ViewExtensionMethods.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Readme\Elmah.Servers.SqlServer.sql" />
@@ -237,43 +238,45 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Web.config" />
     <Content Include="packages.config" />
-    <None Include="Data\ElmahConfig.dbml">
+    <Content Include="Areas\Elmah\Views\Web.config" />
+    <None Include="Areas\Elmah\Data\ElmahConfig.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
       <LastGenOutput>ElmahConfig.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
+    <Content Include="Areas\Elmah\Views\_ViewStart.cshtml" />
     <None Include="readme.txt" />
-    <Content Include="Views\Log\Index.cshtml" />
-    <Content Include="Views\Log\Create.cshtml" />
-    <Content Include="Views\Log\EditorTemplates\ServerForm.cshtml" />
-    <Content Include="Views\Log\DisplayTemplates\TopConstraints.cshtml" />
-    <Content Include="Views\Log\DisplayTemplates\BottomConstraints.cshtml" />
-    <Content Include="Views\Log\SetConstraintsPager.cshtml" />
-    <Content Include="Views\Log\DisplayTemplates\Servers.cshtml" />
-    <Content Include="Views\Log\EditorTemplates\SearchServerForm.cshtml" />
-    <Content Include="Views\Log\EditorTemplates\HiddenServerForm.cshtml" />
-    <Content Include="Views\Log\Delete.cshtml" />
-    <Content Include="Views\Log\ErrorLog.cshtml" />
-    <Content Include="Views\Log\DisplayTemplates\ServerForm.cshtml" />
-    <Content Include="Views\Log\DisplayTemplates\Errors.cshtml" />
-    <Content Include="Views\Log\Error.cshtml" />
-    <Content Include="Views\Log\EditorTemplates\HiddenErrorSearchForm.cshtml" />
-    <Content Include="Views\Log\DisplayTemplates\Error.cshtml" />
-    <Content Include="Views\Shared\ViewDataHiddenInput.cshtml" />
-    <Content Include="Views\Log\AdvancedSearch.cshtml" />
-    <Content Include="Views\Shared\ViewDataTextBoxInput.cshtml" />
-    <Content Include="Views\Log\SimpleSearch.cshtml" />
-    <Content Include="Views\Shared\SortByProperty.cshtml" />
-    <Content Include="Views\Shared\DisplayTemplates\NameValueCollection.cshtml" />
+    <Content Include="Areas\Elmah\Views\Log\Index.cshtml" />
+    <Content Include="Areas\Elmah\Views\Log\Create.cshtml" />
+    <Content Include="Areas\Elmah\Views\Log\EditorTemplates\ServerForm.cshtml" />
+    <Content Include="Areas\Elmah\Views\Log\DisplayTemplates\TopConstraints.cshtml" />
+    <Content Include="Areas\Elmah\Views\Log\DisplayTemplates\BottomConstraints.cshtml" />
+    <Content Include="Areas\Elmah\Views\Log\SetConstraintsPager.cshtml" />
+    <Content Include="Areas\Elmah\Views\Log\DisplayTemplates\Servers.cshtml" />
+    <Content Include="Areas\Elmah\Views\Log\EditorTemplates\SearchServerForm.cshtml" />
+    <Content Include="Areas\Elmah\Views\Log\EditorTemplates\HiddenServerForm.cshtml" />
+    <Content Include="Areas\Elmah\Views\Log\Delete.cshtml" />
+    <Content Include="Areas\Elmah\Views\Log\ErrorLog.cshtml" />
+    <Content Include="Areas\Elmah\Views\Log\DisplayTemplates\ServerForm.cshtml" />
+    <Content Include="Areas\Elmah\Views\Log\DisplayTemplates\Errors.cshtml" />
+    <Content Include="Areas\Elmah\Views\Log\Error.cshtml" />
+    <Content Include="Areas\Elmah\Views\Log\DisplayTemplates\Error.cshtml" />
+    <Content Include="Areas\Elmah\Views\Shared\ViewDataHiddenInput.cshtml" />
+    <Content Include="Areas\Elmah\Views\Log\AdvancedSearch.cshtml" />
+    <Content Include="Areas\Elmah\Views\Shared\ViewDataTextBoxInput.cshtml" />
+    <Content Include="Areas\Elmah\Views\Log\SimpleSearch.cshtml" />
+    <Content Include="Areas\Elmah\Views\Log\SortByProperty.cshtml" />
+    <Content Include="Areas\Elmah\Views\Shared\DisplayTemplates\NameValueCollection.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Data\ElmahConfig.dbml.layout">
+    <None Include="Areas\Elmah\Data\ElmahConfig.dbml.layout">
       <DependentUpon>ElmahConfig.dbml</DependentUpon>
     </None>
   </ItemGroup>

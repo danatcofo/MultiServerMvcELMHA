@@ -22,11 +22,6 @@ namespace ElmahLogViewer
                 "{controller}/{action}/{id}", // URL with parameters
                 new { controller = "Home", action = "Index", id = UrlParameter.Optional } // Parameter defaults
             );
-            routes.MapRoute(
-                "ElmahLog",
-                "{controller}/{action}/{id}",
-                new { controller = "Log", action = "Index", id = UrlParameter.Optional }
-            );
         }
 
         protected void Application_Start()

@@ -1,0 +1,177 @@
+﻿@using ElmahLogViewer.Areas.Elmah.Models;
+@model ElmahLogViewer.Areas.Elmah.Models.SetConstraints
+@{
+    var totalPages = (Model.Total / Model.PerPage) + Math.Min(Model.Total % Model.PerPage, 1);
+
+    var firstPage = Math.Max(Model.Page - 2, 0);
+
+    var lastPage = Math.Min(Math.Max(Model.Page + 2, 4), totalPages - 1);
+
+    // last case scenario
+    if (Model.Page + 2 > totalPages - 1)
+    {
+        firstPage = Math.Max(totalPages - 6, 0);
+    }
+
+    // get the filter
+    Func<object, object> getFilter = s =>
+    {
+        if (s == null) return null;
+        if (s is string) return s;
+        if (s is ServerForm)
+        {
+            var sf = (ServerForm)s;
+            return new
+            {
+                connectionString = sf.ConnectionString,
+                name = sf.Name,
+                environment = sf.Environment,
+            };
+        }
+        return string.Empty;
+    };
+    var action = this.ViewContext.GetRouteValue("action");
+}
+<div class="pager">
+    @if (firstPage > 1)
+    {  // first
+        @Html.ActionLink("First", action, new
+        {
+            serverId = ViewData["serverId"],
+            filter = getFilter(ViewData["filter"]),
+            environment = ViewData["environment"],
+            name = ViewData["name"],
+            connectionString = ViewData["connectionString"],
+            application = ViewData["application"],
+            errorId = ViewData["errorId"],
+            host = ViewData["host"],
+            message = ViewData["message"],
+            fromSequence = ViewData["fromSequence"],
+            toSequence = ViewData["toSequence"],
+            source = ViewData["source"],
+            statusCode = ViewData["statusCode"],
+            fromTimeUtc = ViewData["fromTimeUtc"],
+            toTimeUtc = ViewData["toTimeUtc"],
+            type = ViewData["type"],
+            user = ViewData["user"],
+            // Standard Ones
+            startIndex = 0,
+            perPage = Model.PerPage,
+            sort = Model.Sort,
+            sortDir = Model.SortDir,
+        }, new { Class = "pager-link" })
+    }
+    @if (firstPage > 0)
+    {  // previous
+        @Html.ActionLink("Previous", action, new
+        {
+            serverId = ViewData["serverId"],
+            filter = getFilter(ViewData["filter"]),
+            environment = ViewData["environment"],
+            name = ViewData["name"],
+            connectionString = ViewData["connectionString"],
+            application = ViewData["application"],
+            errorId = ViewData["errorId"],
+            host = ViewData["host"],
+            message = ViewData["message"],
+            fromSequence = ViewData["fromSequence"],
+            toSequence = ViewData["toSequence"],
+            source = ViewData["source"],
+            statusCode = ViewData["statusCode"],
+            fromTimeUtc = ViewData["fromTimeUtc"],
+            toTimeUtc = ViewData["toTimeUtc"],
+            type = ViewData["type"],
+            user = ViewData["user"],
+            // Standard Ones
+            startIndex = (Model.Page - 1) * Model.PerPage,
+            perPage = Model.PerPage,
+            sort = Model.Sort,
+            sortDir = Model.SortDir,
+        }, new { Class = "pager-link" })
+    }
+    @for (int i = firstPage; i <= lastPage; i++)
+    { // [#,#,C,#,#]
+        @Html.ActionLink(string.Format("{0}", i + 1), action, new
+        {
+            serverId = ViewData["serverId"],
+            filter = getFilter(ViewData["filter"]),
+            environment = ViewData["environment"],
+            name = ViewData["name"],
+            connectionString = ViewData["connectionString"],
+            application = ViewData["application"],
+            errorId = ViewData["errorId"],
+            host = ViewData["host"],
+            message = ViewData["message"],
+            fromSequence = ViewData["fromSequence"],
+            toSequence = ViewData["toSequence"],
+            source = ViewData["source"],
+            statusCode = ViewData["statusCode"],
+            fromTimeUtc = ViewData["fromTimeUtc"],
+            toTimeUtc = ViewData["toTimeUtc"],
+            type = ViewData["type"],
+            user = ViewData["user"],
+            // Standard Ones
+            startIndex = i * Model.PerPage,
+            perPage = Model.PerPage,
+            sort = Model.Sort,
+            sortDir = Model.SortDir,
+        }, new { Class = (i == Model.Page) ? "pager-link current" : "pager-link" })
+    }
+    @if (lastPage + 1 < totalPages)
+    { // next
+        @Html.ActionLink("Next", action, new
+        {
+            serverId = ViewData["serverId"],
+            filter = getFilter(ViewData["filter"]),
+            environment = ViewData["environment"],
+            name = ViewData["name"],
+            connectionString = ViewData["connectionString"],
+            application = ViewData["application"],
+            errorId = ViewData["errorId"],
+            host = ViewData["host"],
+            message = ViewData["message"],
+            fromSequence = ViewData["fromSequence"],
+            toSequence = ViewData["toSequence"],
+            source = ViewData["source"],
+            statusCode = ViewData["statusCode"],
+            fromTimeUtc = ViewData["fromTimeUtc"],
+            toTimeUtc = ViewData["toTimeUtc"],
+            type = ViewData["type"],
+            user = ViewData["user"],
+            // Standard Ones
+            startIndex = (Model.Page + 1) * Model.PerPage,
+            perPage = Model.PerPage,
+            sort = Model.Sort,
+            sortDir = Model.SortDir,
+        }, new { Class = "pager-link" })
+    }
+    @if (lastPage + 2 < totalPages)
+    { // last
+        @Html.ActionLink("Last", action, new
+        {
+            serverId = ViewData["serverId"],
+            filter = getFilter(ViewData["filter"]),
+            environment = ViewData["environment"],
+            name = ViewData["name"],
+            connectionString = ViewData["connectionString"],
+            application = ViewData["application"],
+            errorId = ViewData["errorId"],
+            host = ViewData["host"],
+            message = ViewData["message"],
+            fromSequence = ViewData["fromSequence"],
+            toSequence = ViewData["toSequence"],
+            source = ViewData["source"],
+            statusCode = ViewData["statusCode"],
+            fromTimeUtc = ViewData["fromTimeUtc"],
+            toTimeUtc = ViewData["toTimeUtc"],
+            type = ViewData["type"],
+            user = ViewData["user"],
+            // Standard Ones
+            startIndex = (totalPages - 1) * Model.PerPage,
+            perPage = Model.PerPage,
+            sort = Model.Sort,
+            sortDir = Model.SortDir,
+        }, new { Class = "pager-link" })
+    }
+    <span class="pager-info">of @totalPages pages. (@Model.Total entries)</span>
+</div>
