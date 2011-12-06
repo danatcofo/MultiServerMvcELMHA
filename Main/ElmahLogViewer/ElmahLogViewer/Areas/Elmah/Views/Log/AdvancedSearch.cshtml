@@ -7,7 +7,7 @@
             @Html.Label("application", "Application")
         </div>
         <div class="editor-field">
-            @Html.TextBox("application", ViewData["application"])
+            @Html.DropDownList("application", (IEnumerable<SelectListItem>)ViewData["applications"])
         </div>
         <div class="editor-label">
             @Html.Label("errorId", "Error Id")
@@ -19,7 +19,7 @@
             @Html.Label("host", "Host")
         </div>
         <div class="editor-field">
-            @Html.TextBox("host", ViewData["host"])
+            @Html.DropDownList("host", (IEnumerable<SelectListItem>)ViewData["hosts"])
         </div>
         <div class="editor-label">
             @Html.Label("message", "Message")

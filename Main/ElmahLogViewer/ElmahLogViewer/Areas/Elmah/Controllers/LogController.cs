@@ -121,6 +121,57 @@ namespace ElmahLogViewer.Areas.Elmah.Controllers
             ViewData["user"] = user;
         }
 
+        private void SetExtendedFilterViewData(
+            string application,
+            string errorId,
+            string host,
+            string message,
+            int? fromSequence,
+            int? toSequence,
+            string source,
+            int? statusCode,
+            DateTime? fromTimeUtc,
+            DateTime? toTimeUtc,
+            string type,
+            string user,
+            ElmahConfigDataContext context)
+        {
+            var applications = (from i in context.ELMAH_Errors
+                                where string.IsNullOrWhiteSpace(host) || host == i.Host
+                                select new SelectListItem
+                                {
+                                    Text = i.Application,
+                                    Value = i.Application,
+                                    Selected = !string.IsNullOrWhiteSpace(application) && i.Application == application,
+                                }).Distinct().ToArray()
+                                .Union(new SelectListItem[] {
+                                    new SelectListItem {
+                                        Text="ALL",
+                                        Value=string.Empty,
+                                        Selected=string.IsNullOrWhiteSpace(application)
+                                    }
+                                });
+
+            var hosts = (from i in context.ELMAH_Errors
+                         where string.IsNullOrWhiteSpace(application) || application == i.Application
+                         select new SelectListItem
+                         {
+                             Text = i.Host,
+                             Value = i.Host,
+                             Selected = !string.IsNullOrWhiteSpace(host) && i.Host == host,
+                         }).Distinct().ToArray()
+                         .Union(new SelectListItem[] {
+                             new SelectListItem {
+                                Text="ALL",
+                                Value=string.Empty,
+                                Selected=string.IsNullOrWhiteSpace(host)
+                             }
+                         });
+
+            ViewData["applications"] = applications;
+            ViewData["hosts"] = hosts;
+        }
+
         #endregion Set View Data
 
         #endregion Internals
@@ -281,6 +332,8 @@ namespace ElmahLogViewer.Areas.Elmah.Controllers
 
             var logContext = new ElmahConfigDataContext(server.ConnectionString);
 
+            SetExtendedFilterViewData(null, null, null, null, null, null, null, null, null, null, null, null, logContext);
+
             var v = logContext.ELMAH_Errors.AsQueryable();
 
             return View(GetErrorList(startIndex, perPage, sort, sortDir, server, v));
@@ -305,6 +358,8 @@ namespace ElmahLogViewer.Areas.Elmah.Controllers
             SetServerViewData(server);
 
             var logContext = new ElmahConfigDataContext(server.ConnectionString);
+
+            SetExtendedFilterViewData(null, null, null, null, null, null, null, null, null, null, null, null, logContext);
 
             var v = logContext.ELMAH_Errors.Where(i =>
                 i.AllXml.Contains(filter) ||
@@ -347,6 +402,8 @@ namespace ElmahLogViewer.Areas.Elmah.Controllers
             SetFilterViewData(application, errorId, host, message, fromSequence, toSequence, source, statusCode, fromTimeUtc, toTimeUtc, type, user);
 
             var logContext = new ElmahConfigDataContext(server.ConnectionString);
+
+            SetExtendedFilterViewData(application, errorId, host, message, fromSequence, toSequence, source, statusCode, fromTimeUtc, toTimeUtc, type, user, logContext);
 
             var v = logContext.ELMAH_Errors.AsQueryable();
 
