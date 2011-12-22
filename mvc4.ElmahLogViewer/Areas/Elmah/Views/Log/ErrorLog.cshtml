@@ -1,0 +1,25 @@
+﻿@model mvc4.ElmahLogViewer.Areas.Elmah.Models.ErrorList
+@{
+    ViewBag.Title = "ErrorLog";
+}
+@section featured{
+    <section class="featured">
+        <div class="content-wrapper">
+            <hgroup class="title">
+                <h1>
+                    Error Log for Sever</h1>
+            </hgroup>
+            <hgroup class="title">@Html.DisplayFor(m => m.Server)</hgroup>
+            @Html.Partial("AdvancedSearch")
+        </div>
+    </section>
+}
+<fieldset>
+    <legend>Errors</legend>
+    @Html.DisplayFor(m => m.Constraints, "TopConstraints")
+    @Html.DisplayFor(m => m.Results, "Errors")
+    @Html.DisplayFor(m => m.Constraints, "BottomConstraints")
+</fieldset>
+<p>
+    @Html.ActionLink("Back to List", "Index")
+</p>
