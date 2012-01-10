@@ -146,7 +146,11 @@ namespace mvc4.ElmahLogViewer.Areas.Elmah.Controllers
                                  }).Distinct().ToArray().Select(i => new SelectListItem
                                  {
                                      Text = (i.Text.Where(j => j == '/').Count() > 1) ?
-                                        i.Text.Split("/".ToCharArray()).LastOrDefault() :
+                                        (
+                                            i.Text.EndsWith("/Root") ?
+                                            i.Text.Split("/".ToCharArray()).Reverse().Skip(1).FirstOrDefault() :
+                                            i.Text.Split("/".ToCharArray()).LastOrDefault()
+                                        ) :
                                         i.Text,
                                      Value = i.Value,
                                      Selected = i.Selected,
