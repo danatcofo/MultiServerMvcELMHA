@@ -18,7 +18,7 @@
     <header>
         <div class="content-wrapper">
             <div class="float-left">
-                <p class="site-title">@Html.ActionLink("your logo here.", "Index", "Home")</p>
+                <p class="site-title">@Html.ActionLink("Elmah Log Viewer", "Index", new { area = string.Empty, controller = "Home" })</p>
             </div>
             <div class="float-right">
                 <section id="login">
@@ -26,9 +26,6 @@
                 </section>
                 <nav>
                     <ul id="menu">
-                        <li>@Html.ActionLink("Home", "Index", new { area = string.Empty, controller = "Home" })</li>
-                        <li>@Html.ActionLink("About", "About", new { area = string.Empty, controller = "Home" })</li>
-                        <li>@Html.ActionLink("Contact", "Contact", new { area = string.Empty, controller = "Home" })</li>
                         <li>@Html.ActionLink("Elmah", "Index", new { area = "Elmah", controller = "Log" })</li>
                     </ul>
                 </nav>
