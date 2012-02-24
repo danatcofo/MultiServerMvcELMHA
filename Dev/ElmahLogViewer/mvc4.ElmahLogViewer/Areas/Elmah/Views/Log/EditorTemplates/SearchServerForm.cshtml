@@ -1,0 +1,21 @@
+﻿@model mvc4.ElmahLogViewer.Areas.Elmah.Models.ServerForm
+<fieldset>
+    <div class="editor-label">
+        @Html.LabelFor(model => model.ConnectionString)
+    </div>
+    <div class="editor-field">
+        @Html.EditorFor(model => model.ConnectionString)
+    </div>
+    <div class="editor-label">
+        @Html.LabelFor(model => model.Environment)
+    </div>
+    <div class="editor-field">
+        @Html.EditorFor(model => model.Environment)
+    </div>
+    <div class="editor-label">
+        @Html.LabelFor(model => model.Name)
+    </div>
+    <div class="editor-field">
+        @Html.EditorFor(model => model.Name)
+    </div>
+</fieldset>
