@@ -1,0 +1,56 @@
+﻿@using ElmahLogViewer.Areas.Elmah.Models;
+@using System.Web.Helpers;
+@model ElmahLogViewer.Areas.Elmah.Models.SortModel
+@{
+    var action = this.ViewContext.GetRouteValue("action");
+    // get the filter
+    Func<object, object> getFilter = s =>
+    {
+        if (s == null) return null;
+        if (s is string) return s;
+        if (s is ServerForm)
+        {
+            var sf = (ServerForm)s;
+            return new
+            {
+                connectionString = sf.ConnectionString,
+                name = sf.Name,
+                environment = sf.Environment,
+            };
+        }
+        return string.Empty;
+    };
+    var current = ViewData["sort"].ToString() == Model.Property;
+    var label = string.IsNullOrWhiteSpace(Model.Label) ? Model.Property : Model.Label;
+    var dir = SortDirection.Ascending;
+    if (current)
+    {
+        dir = ViewData["sortDir"].ToString() == SortDirection.Ascending.ToString() ? SortDirection.Descending : SortDirection.Ascending;
+        label = string.Format("{0} {1}", label, dir);
+    }
+}
+@Html.ActionLink(label, action, new
+   {
+       serverId = ViewData["serverId"],
+       filter = getFilter(ViewData["filter"]),
+       environment = ViewData["environment"],
+       name = ViewData["name"],
+       connectionString = ViewData["connectionString"],
+       application = ViewData["application"],
+       errorId = ViewData["errorId"],
+       host = ViewData["host"],
+       message = ViewData["message"],
+       fromSequence = ViewData["fromSequence"],
+       toSequence = ViewData["toSequence"],
+       source = ViewData["source"],
+       statusCode = ViewData["statusCode"],
+       fromTimeUtc = ViewData["fromTimeUtc"],
+       toTimeUtc = ViewData["toTimeUtc"],
+       type = ViewData["type"],
+       user = ViewData["user"],
+       // Standard Ones
+       startIndex = ViewData["startIndex"],
+       perPage = ViewData["perPage"],
+       sort = Model.Property,
+       sortDir = dir,
+   }, new { Class = "pager-link" })

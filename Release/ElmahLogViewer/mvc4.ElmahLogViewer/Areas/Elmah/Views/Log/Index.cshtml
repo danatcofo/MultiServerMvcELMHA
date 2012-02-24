@@ -1,0 +1,25 @@
+﻿@using mvc4.ElmahLogViewer.Areas.Elmah.Models;
+@model ServerList
+@{
+    ViewBag.Title = "Index";
+}
+@section featured {
+    <section class="featured">
+        <div class="content-wrapper">
+            <hgroup class="title">
+                <h1>
+                    Servers</h1>
+            </hgroup>
+            <p>
+                @Html.Partial("SimpleSearch")
+                <fieldset>
+                    <legend>Servers</legend>
+                    @Html.DisplayFor(m => m.Constraints, "TopConstraints")
+                    @Html.DisplayFor(m => m.Results, "Servers")
+                    @Html.DisplayFor(m => m.Constraints, "BottomConstraints")
+                </fieldset>
+            </p>
+        </div>
+    </section>
+}
+@Html.Partial("Create", new ServerForm())
