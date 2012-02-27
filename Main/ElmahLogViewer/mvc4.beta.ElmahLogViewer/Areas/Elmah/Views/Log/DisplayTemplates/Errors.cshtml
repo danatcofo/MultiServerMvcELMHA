@@ -1,0 +1,62 @@
+﻿@using ElmahLogViewer.Elmah.Models;
+@model IEnumerable<ElmahError>
+<table class="multi-body cornered" style="width: 100%">
+    <thead>
+        <tr>
+            <th>
+                @Html.Partial("SortByProperty", new SortModel { Property = "TimeUtc", Label = "Time" })
+            </th>
+            <th>
+                @Html.Partial("SortByProperty", new SortModel { Property = "Host" }) ~ @Html.Partial("SortByProperty", new SortModel { Property = "Application" })
+            </th>
+            <th>
+                @Html.Partial("SortByProperty", new SortModel { Property = "StatusCode", Label = "Status Code" })
+            </th>
+            <th>
+                @Html.Partial("SortByProperty", new SortModel { Property = "Type" })
+            </th>
+            <th>
+                @Html.Partial("SortByProperty", new SortModel { Property = "User" })
+            </th>
+            <th>
+            </th>
+        </tr>
+        <tr>
+            <th colspan="6">
+                @Html.Partial("SortByProperty", new SortModel { Property = "Message" })
+            </th>
+        </tr>
+    </thead>
+    @foreach (var item in Model)
+    {
+        <tbody>
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TimeUtc)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Host)~@Html.DisplayFor(modelItem => item.Application)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StatusCode)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Type)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.User)
+                </td>
+                <td>
+                    @Html.ActionLink("Details", "Error", new { serverId = item.ServerId, errorId = item.ErrorId })
+                    |
+                    @Html.ActionLink("Html", "Html", new { serverId = item.ServerId, errorId = item.ErrorId })
+                </td>
+            </tr>
+            <tr>
+                <td colspan="6">
+                    <pre class="detail">@Html.DisplayFor(modelItem => item.Message)</pre>
+                </td>
+            </tr>
+        </tbody>
+    }
+</table>

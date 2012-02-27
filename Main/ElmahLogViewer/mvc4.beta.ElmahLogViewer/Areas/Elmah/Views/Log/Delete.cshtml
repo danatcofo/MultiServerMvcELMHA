@@ -1,0 +1,36 @@
+﻿@using ElmahLogViewer.Elmah.Models;
+@model ElmahLogViewer.Elmah.Data.IServer
+@{
+    ViewBag.Title = "Delete";
+}
+<h2>
+    Delete</h2>
+@using (Html.BeginForm("Delete", "Log", FormMethod.Post))
+{
+    <fieldset>
+        <legend>Delete this Elmah server record?</legend>
+        @Html.HiddenFor(model => model.ServerId)
+        <input type="hidden" value="True" name="confirm" />
+        <div class="display-label">
+            ConnectionString</div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.ConnectionString)
+        </div>
+        <div class="display-label">
+            Environment</div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.Environment)
+        </div>
+        <div class="display-label">
+            Name</div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.Name)
+        </div>
+    </fieldset>
+    <p>
+        <input type="submit" value="Confirm" />
+        |
+        @Html.ActionLink("Cancel", "Index")
+    </p>
+
+}
