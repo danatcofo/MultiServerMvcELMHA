@@ -1,36 +1,45 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 11
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DynamicQuery", "DynamicQuery\DynamicQuery.csproj", "{F285CEB0-4108-440C-AD94-1C1A7C159D7C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "mvc4.beta.ElmahLogViewer", "mvc4.beta.ElmahLogViewer\mvc4.beta.ElmahLogViewer.csproj", "{C91E6233-7CAC-4468-8B77-CFA9A53A935C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ElmahLogViewer", "ElmahLogViewer\ElmahLogViewer.csproj", "{3218699E-8811-4F48-A5DF-F76D8DDA334F}"
+EndProject
 Global
 	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 3
 		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccTeamFoundationServer = https://tfs.codeplex.com/tfs/tfs31
 		SccLocalPath0 = .
-		SccProjectUniqueName1 = DynamicQuery\\DynamicQuery.csproj
-		SccProjectName1 = DynamicQuery
 		SccLocalPath1 = DynamicQuery
-		SccProjectUniqueName2 = mvc4.beta.ElmahLogViewer\\mvc4.beta.ElmahLogViewer.csproj
-		SccProjectName2 = mvc4.beta.ElmahLogViewer
 		SccLocalPath2 = mvc4.beta.ElmahLogViewer
+		SccLocalPath3 = ElmahLogViewer
+		SccNumberOfProjects = 4
+		SccProjectName1 = DynamicQuery
+		SccProjectName2 = mvc4.beta.ElmahLogViewer
+		SccProjectName3 = ElmahLogViewer
+		SccProjectUniqueName1 = DynamicQuery\\DynamicQuery.csproj
+		SccProjectUniqueName2 = mvc4.beta.ElmahLogViewer\\mvc4.beta.ElmahLogViewer.csproj
+		SccProjectUniqueName3 = ElmahLogViewer\\ElmahLogViewer.csproj
+		SccTeamFoundationServer = https://tfs.codeplex.com/tfs/tfs31
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{F285CEB0-4108-440C-AD94-1C1A7C159D7C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F285CEB0-4108-440C-AD94-1C1A7C159D7C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F285CEB0-4108-440C-AD94-1C1A7C159D7C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F285CEB0-4108-440C-AD94-1C1A7C159D7C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3218699E-8811-4F48-A5DF-F76D8DDA334F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3218699E-8811-4F48-A5DF-F76D8DDA334F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3218699E-8811-4F48-A5DF-F76D8DDA334F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3218699E-8811-4F48-A5DF-F76D8DDA334F}.Release|Any CPU.Build.0 = Release|Any CPU
 		{C91E6233-7CAC-4468-8B77-CFA9A53A935C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{C91E6233-7CAC-4468-8B77-CFA9A53A935C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C91E6233-7CAC-4468-8B77-CFA9A53A935C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C91E6233-7CAC-4468-8B77-CFA9A53A935C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F285CEB0-4108-440C-AD94-1C1A7C159D7C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F285CEB0-4108-440C-AD94-1C1A7C159D7C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F285CEB0-4108-440C-AD94-1C1A7C159D7C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F285CEB0-4108-440C-AD94-1C1A7C159D7C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
