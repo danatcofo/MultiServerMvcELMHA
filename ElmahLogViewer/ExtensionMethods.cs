@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace System
+namespace mvc4.beta.ElmahLogViewer
 {
     public static class ExtensionMethods
     {

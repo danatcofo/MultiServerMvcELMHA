@@ -1,0 +1,13 @@
+﻿@using ElmahLogViewer.Areas.Elmah.Models;
+@model ServerForm
+@{
+    ViewBag.Title = "AddServer";
+}
+<section>
+    <h1>
+        Add Server</h1>
+    @using (Html.BeginForm("Create", "Log", FormMethod.Post, new { id = "createServer" }))
+    {
+        @Html.EditorFor(m => m)
+    }
+</section>

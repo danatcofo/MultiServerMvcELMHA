@@ -6,6 +6,7 @@ using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using MvcContrib.PortableAreas;
 
 namespace mvc4.beta.ElmahLogViewer
 {
@@ -38,7 +39,8 @@ namespace mvc4.beta.ElmahLogViewer
 
         protected void Application_Start()
         {
-            AreaRegistration.RegisterAllAreas();
+            PortableAreaRegistration.RegisterAllAreas();
+            //AreaRegistration.RegisterAllAreas();
 
             RegisterGlobalFilters(GlobalFilters.Filters);
             RegisterRoutes(RouteTable.Routes);
