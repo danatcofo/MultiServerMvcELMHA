@@ -131,9 +131,9 @@
   <ItemGroup>
     <Content Include="App_Readme\Elmah.SqlServer.sql" />
     <Content Include="App_Readme\Elmah.SqlServer.txt" />
+    <Content Include="Content\Core.css" />
     <Content Include="Content\images\amightyoak.net.png" />
     <Content Include="Content\Reset.css" />
-    <Content Include="Content\Core.css" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
@@ -230,14 +230,6 @@
     <Content Include="Images\aspNetHome.png" />
     <Content Include="Images\NuGetGallery.png" />
     <Content Include="Images\findHosting.png" />
-    <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Shared\Error.cshtml" />
-    <Content Include="Views\Shared\_LogOnPartial.cshtml" />
-    <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Web.config" />
     <Content Include="Areas\Elmah\Views\Log\AdvancedSearch.cshtml" />
     <Content Include="Areas\Elmah\Views\Log\Create.cshtml" />
     <Content Include="Areas\Elmah\Views\Log\Delete.cshtml" />
@@ -265,13 +257,35 @@
       <SubType>Designer</SubType>
     </None>
     <Content Include="Areas\Elmah\Views\_ViewStart.cshtml" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Shared\_LogOnPartial.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\DateTime.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\DateTime.cshtml" />
+    <None Include="_bin_deployableAssemblies\System.Web.Mvc.dll" />
+    <None Include="_bin_deployableAssemblies\System.Web.WebPages.xml" />
+    <None Include="_bin_deployableAssemblies\System.Web.WebPages.Razor.xml" />
+    <None Include="_bin_deployableAssemblies\System.Web.WebPages.Razor.dll" />
+    <None Include="_bin_deployableAssemblies\System.Web.WebPages.dll" />
+    <None Include="_bin_deployableAssemblies\System.Web.WebPages.Deployment.xml" />
+    <None Include="_bin_deployableAssemblies\System.Web.WebPages.Deployment.dll" />
+    <None Include="_bin_deployableAssemblies\System.Web.WebPages.Administration.dll" />
+    <None Include="_bin_deployableAssemblies\System.Web.Razor.xml" />
+    <None Include="_bin_deployableAssemblies\System.Web.Razor.dll" />
+    <None Include="_bin_deployableAssemblies\System.Web.Helpers.xml" />
+    <None Include="_bin_deployableAssemblies\System.Web.Helpers.dll" />
+    <None Include="_bin_deployableAssemblies\NuGet.Core.dll" />
+    <None Include="_bin_deployableAssemblies\Microsoft.Web.Infrastructure.xml" />
+    <None Include="_bin_deployableAssemblies\Microsoft.Web.Infrastructure.dll" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
-    <Folder Include="_bin_deployableAssemblies\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
