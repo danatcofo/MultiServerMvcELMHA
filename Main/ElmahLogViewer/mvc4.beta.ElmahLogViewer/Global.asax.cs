@@ -39,8 +39,7 @@ namespace mvc4.beta.ElmahLogViewer
 
         protected void Application_Start()
         {
-            PortableAreaRegistration.RegisterAllAreas();
-            //AreaRegistration.RegisterAllAreas();
+            PortableAreaRegistration.RegisterAllAreas();            
 
             RegisterGlobalFilters(GlobalFilters.Filters);
             RegisterRoutes(RouteTable.Routes);
