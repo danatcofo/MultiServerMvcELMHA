@@ -24,6 +24,8 @@ namespace ElmahLogViewer.Areas.Elmah
                 "Elmah/{controller}/{action}/{id}",
                 new { action = "Index", id = UrlParameter.Optional }
             );
+
+            //RegisterEmbeddedViewEngine();
         }
     }
 }
