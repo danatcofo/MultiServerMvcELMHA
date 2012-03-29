@@ -1,0 +1,14 @@
+﻿@using ElmahLogViewer.Areas.Elmah.Models;
+@model IEnumerable<ElmahLogViewer.Areas.Elmah.Data.IServer>
+<ul data-role="listview">
+    @foreach (var item in Model)
+    {
+        <li data-split-icon="gear">
+            @Html.ActionLink(string.Format("{0}: {1}", item.Environment, item.Name), "ErrorLog", 
+                new { serverId = item.ServerId })
+            @Html.ActionLink("Delete", "Delete", 
+                new { serverId = item.ServerId }, 
+                new { data_inline = true, data_mini = true, data_role = "button", data_icon = "minus" })
+        </li>
+    }
+</ul>

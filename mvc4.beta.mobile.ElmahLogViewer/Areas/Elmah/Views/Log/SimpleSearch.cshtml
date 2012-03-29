@@ -1,0 +1,8 @@
+﻿<form action="@Url.Action("Search", "Log")" method="get" id="searchForm">
+<div data-role="fieldcontain" data-type="horizontal" data-theme="c">
+    <input type="text" name="filter" value="@ViewData["filter"]"  placeholder="search connections"
+        data-mini="true" data-type="search" data-inline="true"  />
+    <input type="hidden" name="serverId" value="@ViewData["serverId"]" />
+    <input type="submit" value="Search" data-mini="true" data-inline="true" data-icon="search" />
+</div>
+</form>

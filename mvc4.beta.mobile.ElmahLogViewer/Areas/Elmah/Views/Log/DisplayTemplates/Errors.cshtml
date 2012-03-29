@@ -1,0 +1,52 @@
+﻿@using ElmahLogViewer.Areas.Elmah.Models;
+@model IEnumerable<ElmahError>
+<div data-role="content">
+    <ul data-role="listview" data-theme="d">
+        <li data-role="list-divider" role="navigation">
+            @Html.Partial("DisplaySortByProperty", new SortModel { Property = "TimeUtc", Label = "Time" })
+            @Html.Partial("DisplaySortByProperty", new SortModel { Property = "Host" })
+            @Html.Partial("DisplaySortByProperty", new SortModel { Property = "Application" })
+            @Html.Partial("DisplaySortByProperty", new SortModel { Property = "StatusCode", Label = "Status Code" })
+            @Html.Partial("DisplaySortByProperty", new SortModel { Property = "Type" })
+            @Html.Partial("DisplaySortByProperty", new SortModel { Property = "User" })
+            @Html.Partial("DisplaySortByProperty", new SortModel { Property = "Message" })
+            <ul data-role="navbar">
+                <li>
+                    @Html.Partial("SortByProperty", new SortModel { Property = "TimeUtc", Label = "Time" })
+                </li>
+                <li>
+                    @Html.Partial("SortByProperty", new SortModel { Property = "Host" })
+                </li>
+                <li>
+                    @Html.Partial("SortByProperty", new SortModel { Property = "Application" })
+                </li>
+                <li>
+                    @Html.Partial("SortByProperty", new SortModel { Property = "StatusCode", Label = "Status Code" })
+                </li>
+                <li>
+                    @Html.Partial("SortByProperty", new SortModel { Property = "Type" })
+                </li>
+                <li>
+                    @Html.Partial("SortByProperty", new SortModel { Property = "User" })
+                </li>
+                <li>
+                    @Html.Partial("SortByProperty", new SortModel { Property = "Message" })
+                </li>
+            </ul>
+        </li>
+        @foreach (var item in Model)
+        {
+            <li><a href="@Url.Action("Error", new { serverId = item.ServerId, errorId = item.ErrorId })">
+                <h1>@Html.DisplayFor(modelItem => item.TimeUtc)</h1>
+                <h2>@Html.DisplayFor(modelItem => item.Host)~@Html.DisplayFor(modelItem => item.Application)
+                </h2>
+                <h3>@Html.DisplayFor(modelItem => item.StatusCode) |
+                    @Html.DisplayFor(modelItem => item.Type) |
+                    @Html.DisplayFor(modelItem => item.User) </h3>
+                <pre>@Html.DisplayFor(modelItem => item.Message)</pre>
+            </a>
+                @Html.ActionLink("Html", "Html", new { serverId = item.ServerId, errorId = item.ErrorId }, new { data_icon = "alert" })
+            </li>
+        }
+    </ul>
+</div>

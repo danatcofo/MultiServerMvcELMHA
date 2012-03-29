@@ -1,0 +1,55 @@
+﻿<div data-role="collapsible">
+    <h1>Filter</h1>
+    <form action="@Url.Action("AdvancedSearch", "Log")" method="get" id="advancedSearch">
+    @Html.Partial("ViewDataHiddenInput", "serverId")
+    <div data-role="fieldcontain" data-mini="true">
+        @Html.Label("application", "Application")
+        @Html.DropDownList("application", (IEnumerable<SelectListItem>)ViewData["applications"], new { @class = "autocomplete" })
+    </div>
+    <div data-role="fieldcontain" data-mini="true">
+        @Html.Label("host", "Host")
+        @Html.DropDownList("host", (IEnumerable<SelectListItem>)ViewData["hosts"], new { @class = "autocomplete" })
+    </div>
+    <div data-role="fieldcontain" data-mini="true">
+        @Html.Label("statusCode", "Status Code")
+        @Html.DropDownList("statusCode", (IEnumerable<SelectListItem>)ViewData["statusCodes"], new { @class = "autocomplete" })
+    </div>
+    <div data-role="fieldcontain" data-mini="true">
+        @Html.Label("source", "Source dll")
+        @Html.DropDownList("source", (IEnumerable<SelectListItem>)ViewData["sources"], new { @class = "autocomplete" })
+    </div>
+    <div data-role="fieldcontain" data-mini="true">
+        @Html.Label("type", "Exception Type")
+        @Html.DropDownList("type", (IEnumerable<SelectListItem>)ViewData["types"], new { @class = "autocomplete" })
+    </div>
+    <div data-role="fieldcontain" data-mini="true">
+        @Html.Label("errorId", "Error Id")
+        @Html.TextBox("errorId", ViewData["errorId"])
+    </div>
+    <div data-role="fieldcontain" data-mini="true">
+        @Html.Label("fromSequence", "From Sequence Number")
+        @Html.TextBox("fromSequence", ViewData["fromSequence"])
+    </div>
+    <div data-role="fieldcontain" data-mini="true">
+        @Html.Label("toSequence", "To Sequence Number")
+        @Html.TextBox("toSequence", ViewData["toSequence"])
+    </div>
+    <div data-role="fieldcontain" data-mini="true">
+        @Html.Label("message", "Message")
+        @Html.TextBox("message", ViewData["message"])
+    </div>
+    <div data-role="fieldcontain" data-mini="true">
+        @Html.Label("fromTimeUtc", "From Time")
+        @Html.TextBox("fromTimeUtc", ViewData["fromTimeUtc"], new { @class = "datefield", type = "date" })
+    </div>
+    <div data-role="fieldcontain" data-mini="true">
+        @Html.Label("toTimeUtc", "To Time")
+        @Html.TextBox("toTimeUtc", ViewData["toTimeUtc"], new { @class = "datefield", type = "date" })
+    </div>
+    <div data-role="fieldcontain" data-mini="true">
+        @Html.Label("user", "User")
+        @Html.TextBox("user", ViewData["user"])
+    </div>
+    <input type="submit" value="Search" />
+    </form>
+</div>

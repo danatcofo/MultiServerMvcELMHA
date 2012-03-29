@@ -1,0 +1,16 @@
+﻿@using ElmahLogViewer.Areas.Elmah.Models;
+@model ErrorList
+@{
+    ViewBag.Title = "ErrorLog";
+}
+@Html.DisplayFor(m => m.Server)
+<div data-role="collapsible-set">
+    @Html.Partial("AdvancedSearch")
+    <div data-role="collapsible" data-collapsed="false">
+        <h1>Errors</h1>
+        @Html.DisplayFor(m => m.Constraints, "TopConstraints")
+        @Html.DisplayFor(m => m.Results, "Errors")
+        @Html.DisplayFor(m => m.Constraints, "BottomConstraints")
+    </div>
+</div>
+@Html.ActionLink("Back to List", "Index", new { }, new { data_icon = "back", data_role = "button" })

@@ -101,6 +101,27 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <None Include="Views\Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DynamicQuery\DynamicQuery.csproj">
+      <Project>{F285CEB0-4108-440C-AD94-1C1A7C159D7C}</Project>
+      <Name>DynamicQuery</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Readme\Elmah.Servers.SqlServer.sql" />
+    <Content Include="danatcofo.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Data\DataContext.dbml.layout">
+      <DependentUpon>DataContext.dbml</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
     <EmbeddedResource Include="Views\Log\AdvancedSearch.cshtml" />
     <EmbeddedResource Include="Views\Log\Create.cshtml" />
     <EmbeddedResource Include="Views\Log\Delete.cshtml" />
@@ -124,26 +145,7 @@
     <EmbeddedResource Include="Views\Shared\EditorTemplates\DateTime.cshtml" />
     <EmbeddedResource Include="Views\Shared\ViewDataHiddenInput.cshtml" />
     <EmbeddedResource Include="Views\Shared\ViewDataTextBoxInput.cshtml" />
-    <None Include="Views\Web.config" />
     <EmbeddedResource Include="Views\_ViewStart.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\DynamicQuery\DynamicQuery.csproj">
-      <Project>{F285CEB0-4108-440C-AD94-1C1A7C159D7C}</Project>
-      <Name>DynamicQuery</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="App_Readme\Elmah.Servers.SqlServer.sql" />
-    <Content Include="danatcofo.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Data\DataContext.dbml.layout">
-      <DependentUpon>DataContext.dbml</DependentUpon>
-    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

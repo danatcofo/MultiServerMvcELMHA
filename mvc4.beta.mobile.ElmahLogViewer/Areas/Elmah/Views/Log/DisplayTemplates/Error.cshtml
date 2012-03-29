@@ -1,0 +1,110 @@
+﻿@model Elmah.Error
+@{
+    var count = 0;
+    if (Model.QueryString.Count > 0) { ++count; }
+    if (Model.Form.Count > 0) { ++count; }
+    if (Model.ServerVariables.Count > 0) { ++count; }
+    if (Model.Cookies.Count > 0) { ++count; }
+}
+@helper NameValueCollections()
+{
+    
+    if (Model.QueryString.Count > 0)
+    {
+    <div data-role="collapsible">
+        <h1>Query String</h1>
+        @Html.DisplayFor(m => m.QueryString)
+    </div>
+    }
+    if (Model.Form.Count > 0)
+    {
+    <div data-role="collapsible">
+        <h1>Form</h1>
+        @Html.DisplayFor(m => m.Form)
+    </div>
+    }
+    if (Model.ServerVariables.Count > 0)
+    {
+
+    <div data-role="collapsible">
+        <h1>Server Variables</h1>
+        @Html.DisplayFor(m => m.ServerVariables)
+    </div>
+    }
+    if (Model.Cookies.Count > 0)
+    {
+    <div data-role="collapsible">
+        <h1>Cookies</h1>
+        @Html.DisplayFor(m => m.Cookies)
+    </div>
+    }
+}
+<style>
+    th, td
+    {
+        text-align: left;
+        vertical-align: top;
+    }
+
+    table
+    {
+        width: fill-available;
+    }
+</style>
+<table>
+    <thead>
+        <tr>
+            <th scope="col">Property</th>
+            <th scope="col">Value</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th scope="row">ApplicationName:</th>
+            <td>@Html.DisplayFor(model => model.ApplicationName)</td>
+        </tr>
+        <tr>
+            <th scope="row">HostName:</th>
+            <td>@Html.DisplayFor(model => model.HostName)</td>
+        </tr>
+        <tr>
+            <th scope="row">Type:</th>
+            <td>@Html.DisplayFor(model => model.Type)</td>
+        </tr>
+        <tr>
+            <th scope="row">Source:</th>
+            <td>@Html.DisplayFor(model => model.Source)</td>
+        </tr>
+        <tr>
+            <th scope="row">User:</th>
+            <td>@Html.DisplayFor(model => model.User)</td>
+        </tr>
+        <tr>
+            <th scope="row">Time:</th>
+            <td>@Html.DisplayFor(model => model.Time)</td>
+        </tr>
+        <tr>
+            <th scope="row">StatusCode:</th>
+            <td>@Html.DisplayFor(model => model.StatusCode)</td>
+        </tr>
+        <tr>
+            <th scope="row">Message:</th>
+            <td style="white-space: pre-wrap">@Html.DisplayFor(model => model.Message)</td>
+        </tr>
+        <tr>
+            <th scope="row">Detail: </th>
+            <td style="white-space: pre-wrap"><code>@Html.DisplayFor(model => model.Detail)</code>
+            </td>
+        </tr>
+    </tbody>
+</table>
+@if (count > 1)
+{
+    <div data-role="collapsible-set">
+        @NameValueCollections()
+    </div>
+}
+else
+{
+    NameValueCollections();
+}
