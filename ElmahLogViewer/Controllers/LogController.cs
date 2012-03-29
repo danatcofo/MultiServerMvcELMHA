@@ -17,7 +17,7 @@ namespace ElmahLogViewer.Areas.Elmah.Controllers
 
         private Func<Guid, ServerForm> getServer = s =>
         {
-            return new DataContext()
+            return new DataContext(ConfigurationManager.ConnectionStrings[Properties.Settings.Default.ConectionStringKey].ConnectionString)
                 .ELMAH_Servers.Where(i => i.ServerId == s).Select(i => new ServerForm
                 {
                     ServerId = i.ServerId,
