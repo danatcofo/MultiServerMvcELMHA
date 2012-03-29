@@ -1,0 +1,40 @@
+﻿@using ElmahLogViewer.Areas.Elmah.Models;
+@model SetConstraints
+@{    
+    var totalPages = (Model.Total / Model.PerPage) + Math.Min(Model.Total % Model.PerPage, 1);
+}
+<div data-role="controlgroup" data-type="horizontal" data-theme="a">
+    <form id="pagerForm" method="get" action="@Url.Action(ViewContext.GetRouteValue("action"))">
+    <label for="perPage">@totalPages pages. (@Model.Total entries)</label>
+    <select name="perPage" data-mini="true" data-inline="true">
+        <option value="15" @((Model.PerPage == 15) ? "selected='selected'" : "")>15 Per Page
+        </option>
+        <option value="25" @((Model.PerPage == 25) ? "selected='selected'" : "")>25 Per Page
+        </option>
+        <option value="50" @((Model.PerPage == 50) ? "selected='selected'" : "")>50 Per Page
+        </option>
+        <option value="100" @((Model.PerPage == 100) ? "selected='selected'" : "")>100 Per Page
+        </option>
+        <option value="200" @((Model.PerPage == 200) ? "selected='selected'" : "")>200 Per Page
+        </option>
+    </select>
+    @Html.Partial("ViewDataHiddenInput", "serverId")
+    @Html.Partial("ViewDataHiddenInput", "filter")
+    @Html.Partial("ViewDataHiddenInput", "environment")
+    @Html.Partial("ViewDataHiddenInput", "name")
+    @Html.Partial("ViewDataHiddenInput", "connectionString")
+    @Html.Partial("ViewDataHiddenInput", "application")
+    @Html.Partial("ViewDataHiddenInput", "errorId")
+    @Html.Partial("ViewDataHiddenInput", "host")
+    @Html.Partial("ViewDataHiddenInput", "fromSequence")
+    @Html.Partial("ViewDataHiddenInput", "toSequence")
+    @Html.Partial("ViewDataHiddenInput", "source")
+    @Html.Partial("ViewDataHiddenInput", "statusCode")
+    @Html.Partial("ViewDataHiddenInput", "fromTimeUtc")
+    @Html.Partial("ViewDataHiddenInput", "toTimeUtc")
+    @Html.Partial("ViewDataHiddenInput", "type")
+    @Html.Partial("ViewDataHiddenInput", "user")
+    <input type="submit" value="Go" data-mini="true" data-inline="true" />
+    </form>
+</div>
+@Html.Partial("SetConstraintsPager", Model)

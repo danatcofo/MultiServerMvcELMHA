@@ -1,0 +1,26 @@
+﻿@model System.Collections.Specialized.NameValueCollection
+<div>
+    @helper NameValueItem(string key)
+    {
+        if (!string.IsNullOrWhiteSpace(Model[key]))
+        {
+            <tr>
+                <th scope="row">
+                    @key:</th>
+                <td style="white-space: pre-wrap">@Model[key].BreakLongString(80).Trim()</td>
+            </tr>
+        }
+    }
+    <table>
+        <thead>
+            <th scope="col">Property</th>
+            <th scope="col">Value</th>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.AllKeys)
+            {
+                @NameValueItem(item)
+            }
+        </tbody>
+    </table>
+</div>

@@ -51,7 +51,7 @@ namespace mvc4.beta.ElmahLogViewer
         {
             bundles.Add(new Bundle("~/Scripts/core", new JsMinify())
                 .Chain(a => a.AddFile("~/Scripts/jquery-1.7.1.min.js"))
-                .Chain(a => a.AddFile("~/Scripts/jquery-ui-1.8.17.min.js"))
+                .Chain(a => a.AddFile("~/Scripts/jquery-ui-1.8.18.min.js"))
                 .Chain(a => a.AddFile("~/Scripts/core.js")));
 
             bundles.Add(new Bundle("~/Scripts/ajax", new JsMinify())
@@ -63,7 +63,8 @@ namespace mvc4.beta.ElmahLogViewer
             bundles.Add(new Bundle("~/Content/css", new CssMinify())
                 .Chain(a => a.AddFile("~/Content/Reset.css"))
                 .Chain(a => a.AddFile("~/Content/Site.css"))
-                .Chain(a => a.AddFile("~/Content/Core.css")));
+                .Chain(a => a.AddFile("~/Content/Core.css"))
+                );
 
             bundles.Add(new Bundle("~/Content/themes/base/css", new CssMinify())
                 .Chain(a => a.AddDirectory("~/Content/themes/base", "*.css")));

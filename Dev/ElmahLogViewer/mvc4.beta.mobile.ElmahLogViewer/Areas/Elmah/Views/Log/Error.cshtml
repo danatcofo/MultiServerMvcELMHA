@@ -1,0 +1,18 @@
+﻿@using ElmahLogViewer.Areas.Elmah.Models;
+@model Error
+@{
+    ViewBag.Title = "Error";
+}
+@section featured
+{
+    @Html.DisplayFor(m => m.ServerDetails)
+    <nav data-role="controlgroup" data-type="horizontal">
+        @Html.ActionLink("Html", "Html", new { serverId = Model.ServerDetails.ServerId, errorId = Model.ErrorDetails.ErrorId }, new { data_icon = "alert", data_role = "button", data_inline = true })
+        @Html.ActionLink("Back to List", "ErrorLog", new { serverId = Model.ServerDetails.ServerId }, new { data_icon = "back", data_role = "button", data_inline = true })
+    </nav>
+}
+@Html.DisplayFor(m => m.ElmahError)
+<nav data-role="controlgroup" data-type="horizontal">
+    @Html.ActionLink("Html", "Html", new { serverId = Model.ServerDetails.ServerId, errorId = Model.ErrorDetails.ErrorId }, new { data_icon = "alert", data_role = "button", data_inline = true })
+    @Html.ActionLink("Back to List", "ErrorLog", new { serverId = Model.ServerDetails.ServerId }, new { data_icon = "back", data_role = "button", data_inline = true })
+</nav>

@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ElmahLogViewer", "ElmahLogV
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "mvc3.ElmahLogViewer", "mvc3.ElmahLogViewer\mvc3.ElmahLogViewer.csproj", "{93CCB4F5-34C8-4EF7-9F26-B398B71908E7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "mvc4.beta.mobile.ElmahLogViewer", "mvc4.beta.mobile.ElmahLogViewer\mvc4.beta.mobile.ElmahLogViewer.csproj", "{9AA4A5EE-5E4D-4CB1-93C0-80518087095D}"
+EndProject
 Global
 	GlobalSection(TeamFoundationVersionControl) = preSolution
 		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
@@ -17,15 +19,18 @@ Global
 		SccLocalPath2 = mvc4.beta.ElmahLogViewer
 		SccLocalPath3 = ElmahLogViewer
 		SccLocalPath4 = mvc3.ElmahLogViewer
-		SccNumberOfProjects = 5
+		SccLocalPath5 = mvc4.beta.mobile.ElmahLogViewer
+		SccNumberOfProjects = 6
 		SccProjectName1 = DynamicQuery
 		SccProjectName2 = mvc4.beta.ElmahLogViewer
 		SccProjectName3 = ElmahLogViewer
 		SccProjectName4 = mvc3.ElmahLogViewer
+		SccProjectName5 = mvc4.beta.mobile.ElmahLogViewer
 		SccProjectUniqueName1 = DynamicQuery\\DynamicQuery.csproj
 		SccProjectUniqueName2 = mvc4.beta.ElmahLogViewer\\mvc4.beta.ElmahLogViewer.csproj
 		SccProjectUniqueName3 = ElmahLogViewer\\ElmahLogViewer.csproj
 		SccProjectUniqueName4 = mvc3.ElmahLogViewer\\mvc3.ElmahLogViewer.csproj
+		SccProjectUniqueName5 = mvc4.beta.mobile.ElmahLogViewer\\mvc4.beta.mobile.ElmahLogViewer.csproj
 		SccTeamFoundationServer = https://tfs.codeplex.com/tfs/tfs31
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,6 +46,10 @@ Global
 		{93CCB4F5-34C8-4EF7-9F26-B398B71908E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{93CCB4F5-34C8-4EF7-9F26-B398B71908E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{93CCB4F5-34C8-4EF7-9F26-B398B71908E7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9AA4A5EE-5E4D-4CB1-93C0-80518087095D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9AA4A5EE-5E4D-4CB1-93C0-80518087095D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9AA4A5EE-5E4D-4CB1-93C0-80518087095D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9AA4A5EE-5E4D-4CB1-93C0-80518087095D}.Release|Any CPU.Build.0 = Release|Any CPU
 		{C91E6233-7CAC-4468-8B77-CFA9A53A935C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{C91E6233-7CAC-4468-8B77-CFA9A53A935C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C91E6233-7CAC-4468-8B77-CFA9A53A935C}.Release|Any CPU.ActiveCfg = Release|Any CPU
